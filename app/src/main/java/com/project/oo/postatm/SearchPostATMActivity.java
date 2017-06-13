@@ -31,6 +31,7 @@ public class SearchPostATMActivity extends AppCompatActivity {
     private String selectDistrict;
     private List<PostATM> searchResultATM;
     private List<PostATM> conditionATM;
+    private TextView atmNoteText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,6 +82,18 @@ public class SearchPostATMActivity extends AppCompatActivity {
             showPostATMs();
         }
     };
+    private AdapterView.OnItemClickListener atmClickListener = new AdapterView.OnItemClickListener() {
+        @Override
+        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            Intent intent = new Intent();
+            intent.setClass(SearchPostATMActivity.this, ATMInfoActivity.class);
+            Bundle bundle=new Bundle();
+            bundle.putSerializable("selectedATM", conditionATM.get(position));
+            intent.putExtras(bundle);
+            intent.putExtra("note",atmNoteText.getText());
+            startActivity(intent);
+        }
+    };
 
     private void showPostATMs() {
             conditionATM.clear();
@@ -104,7 +117,7 @@ public class SearchPostATMActivity extends AppCompatActivity {
                 public View getView(int position, View convertView, ViewGroup parent) {
                     View view = super.getView(position, convertView, parent);
                     TextView text1 = (TextView) view.findViewById(android.R.id.text1);
-                    TextView text2 = (TextView) view.findViewById(android.R.id.text2);
+                    atmNoteText = (TextView) view.findViewById(android.R.id.text2);
                     text1.setText(conditionATM.get(position).name);
                     String status = "";
                     if (conditionATM.get(position).deposit)
@@ -115,12 +128,12 @@ public class SearchPostATMActivity extends AppCompatActivity {
                         status += "<局外>";
                     else if (!conditionATM.get(position).outside)
                         status += "<局內>";
-                    text2.setText(status);
+                    atmNoteText.setText(status);
                     return view;
                 }
             };
             lstSearch.setAdapter(postATMArrayAdapterAdapter);
-            lstSearch.setOnItemClickListener(null);
+            lstSearch.setOnItemClickListener(atmClickListener);
     }
 
     private CheckBox.OnClickListener conditionListener = new View.OnClickListener() {

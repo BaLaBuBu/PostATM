@@ -1,12 +1,13 @@
 package com.project.oo.postatm;
 
 import java.io.InputStream;
+import java.io.Serializable;
 
 /**
  * Created by CGLab-K501L on 2017/5/19.
  */
 
-public class PostATM {
+public class PostATM implements Serializable{
     String name;
     String city;
     String district;
