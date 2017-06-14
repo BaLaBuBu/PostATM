@@ -1,6 +1,5 @@
 package com.project.oo.postatm;
 
-import java.io.InputStream;
 import java.io.Serializable;
 
 /**
@@ -18,6 +17,20 @@ public class PostATM implements Serializable{
     boolean deposit;
     boolean outside;
     boolean passbookUpdate;
+
+    public String getStatus()
+    {
+        String status = "";
+        if (deposit)
+            status += "<存款>";
+        if (passbookUpdate)
+            status += "<補摺>";
+        if (outside)
+            status += "<局外>";
+        else if (!outside)
+            status += "<局內>";
+        return  status;
+    }
 
     @Override
     public String toString() {

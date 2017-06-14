@@ -40,7 +40,8 @@
             android:label="@string/title_activity_near_by_post_atm" />
         <activity android:name=".FavoriteActivity" />
         <activity android:name=".SearchPostATMActivity" />
-        <activity android:name=".ATMInfoActivity"></activity>
+        <activity android:name=".ATMInfoActivity" />
+        <activity android:name=".HistoryActivity"></activity>
     </application>
 
 </manifest>
