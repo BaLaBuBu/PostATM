@@ -11,7 +11,7 @@ New Feature :
 </ol>
 Bug Fixed :
 <ol>
-<li>修正地址重複市區問題</li><
+<li>修正地址重複市區問題</li>
  <li>修正地址過長問題</li>
  <li>修正附近atm頁面停止回應</li>
  <li>修正資料亂碼((大園菓林郵局)</li>
