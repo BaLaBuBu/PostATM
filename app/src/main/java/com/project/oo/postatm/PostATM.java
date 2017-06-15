@@ -1,12 +1,12 @@
 package com.project.oo.postatm;
 
-import java.io.InputStream;
+import java.io.Serializable;
 
 /**
  * Created by CGLab-K501L on 2017/5/19.
  */
 
-public class PostATM {
+public class PostATM implements Serializable{
     String name;
     String city;
     String district;
@@ -18,6 +18,26 @@ public class PostATM {
     boolean outside;
     boolean passbookUpdate;
 
+    public String getStatus()
+    {
+        String status = "";
+        if (deposit)
+            status += "<存款>";
+        if (passbookUpdate)
+            status += "<補摺>";
+        if (outside)
+            status += "<局外>";
+        else if (!outside)
+            status += "<局內>";
+        return  status;
+    }
+    public String getFullAddress()
+    {
+        if (address.contains("縣") || address.contains("市"))
+            return address;
+        else
+            return city + district + address;
+    }
     @Override
     public String toString() {
         return name;

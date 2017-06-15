@@ -2,12 +2,9 @@ package com.project.oo.postatm;
 
 import com.opencsv.CSVReader;
 
-import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.List;
@@ -117,5 +114,13 @@ public class PostATMManager {
                 }
             }
         }
+    }
+
+    public PostATM getPostATMByName(String atmName) {
+        for (int i = 0; i < this.postATMs.size(); i++) {
+            if (postATMs.get(i).name.equals(atmName))
+                return postATMs.get(i);
+        }
+        return null;
     }
 }
