@@ -3,7 +3,7 @@ OO Final Project
 物件導向期末專案
 郵局ATM app
 
-2017/06/25 Update:
+2017/06/15 Update:
 New Feature :
     1.完成附近atm查詢業面
     2.地圖marker增加第三行顯示atm資訊
