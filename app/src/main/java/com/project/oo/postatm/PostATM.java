@@ -31,7 +31,13 @@ public class PostATM implements Serializable{
             status += "<局內>";
         return  status;
     }
-
+    public String getFullAddress()
+    {
+        if (address.contains("縣") || address.contains("市"))
+            return address;
+        else
+            return city + district + address;
+    }
     @Override
     public String toString() {
         return name;

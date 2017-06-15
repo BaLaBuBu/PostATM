@@ -44,7 +44,7 @@ public class PostATMAdapter extends BaseAdapter {
         TextView txtNote = (TextView)convertView.findViewById(R.id.txtNote);
         PostATM selectedAtm = atms.get(position);
         txtName.setText(selectedAtm.name);
-        txtAddress.setText(selectedAtm.city + selectedAtm.district + selectedAtm.address);
+        txtAddress.setText(selectedAtm.getFullAddress());
         txtNote.setText(selectedAtm.getStatus());
         return convertView;
     }

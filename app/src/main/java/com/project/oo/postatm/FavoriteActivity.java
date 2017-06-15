@@ -1,10 +1,7 @@
 package com.project.oo.postatm;
 
-import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.AdapterView;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.ListView;
 
 public class FavoriteActivity extends AppCompatActivity {

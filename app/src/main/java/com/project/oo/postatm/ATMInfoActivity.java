@@ -3,7 +3,6 @@ package com.project.oo.postatm;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageButton;
@@ -34,7 +33,7 @@ public class ATMInfoActivity extends AppCompatActivity {
         initialUIs();
         setTextView(txtName, atm.name);
         setTextView(txtPhone, atm.telephone);
-        setTextView(txtAddress, atm.city + atm.district + atm.address);
+        setTextView(txtAddress, atm.getFullAddress());
         setTextView(txtNote, atm.getStatus());
     }
 
