@@ -9,4 +9,4 @@ Bug Fixed :
 		<li>修正ATM資訊過長顯示問題</li>
 	</ol>
  
- APK DownLoad : https://github.com/BaLaBuBu/PostATM/raw/SearchATM/apk/PostATM0616.apk
+ APK DownLoad : https://github.com/BaLaBuBu/PostATM/raw/master/apk/PostATM0616.apk
