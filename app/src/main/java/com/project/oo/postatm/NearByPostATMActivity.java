@@ -118,19 +118,18 @@ public class NearByPostATMActivity extends FragmentActivity implements OnMapRead
     }
 
     void markATMs() {
-        int height = 104;
+        /*int height = 104;
         int width = 80;
-
         BitmapDrawable bitmapdraw = (BitmapDrawable) ResourcesCompat.getDrawable(getResources(), R.drawable.mark, null);
         Bitmap b = bitmapdraw.getBitmap();
-        Bitmap smallMarker = Bitmap.createScaledBitmap(b, width, height, false);
+        Bitmap smallMarker = Bitmap.createScaledBitmap(b, width, height, false);*/
         for (int i = 0; i < postATMManager.getPostATMCount(); i++) {
             PostATM atm = postATMManager.postATMs.get(i);
             LatLng atmPosition = new LatLng(atm.latitude, atm.longitude);
             MarkerOptions markOpt = new MarkerOptions().position(atmPosition).title(atm.name);
             markOpt.snippet(atm.getFullAddress() + "\n" + atm.getStatus());
-            markOpt.icon(BitmapDescriptorFactory.fromBitmap(smallMarker));
-            //markOpt.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN));
+            //markOpt.icon(BitmapDescriptorFactory.fromBitmap(smallMarker));
+            markOpt.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN));
             mMap.addMarker(markOpt);
         }
         ATMInfoWindowAdapter adapter = new ATMInfoWindowAdapter(this);
