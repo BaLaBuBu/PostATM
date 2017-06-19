@@ -14,15 +14,13 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:label="中華郵政ATM"
+        android:icon="@drawable/atm"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".FunctionSelectActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

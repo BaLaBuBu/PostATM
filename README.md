@@ -3,10 +3,11 @@ OO Final Project
 物件導向期末專案
 郵局ATM app
 
-2017/06/16 Update:
-Bug Fixed :
+2017/06/19 介面美化
+Update:
 	<ol>
-		<li>修正ATM資訊過長顯示問題</li>
+		<li>修改按鈕圖片</li>
+		<li>地圖標記圖片</li>
+		<li>app圖示</li>
 	</ol>
- 
- APK DownLoad : https://github.com/BaLaBuBu/PostATM/raw/master/apk/PostATM0616.apk
+ APK DownLoad : https://github.com/BaLaBuBu/PostATM/raw/master/apk/PostATM0619.apk

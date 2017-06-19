@@ -3,6 +3,8 @@ package com.project.oo.postatm;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -11,6 +13,7 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.content.res.ResourcesCompat;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -69,6 +72,7 @@ public class NearByPostATMActivity extends FragmentActivity implements OnMapRead
         public void onLocationChanged(Location location) {
             LatLng point = new LatLng(location.getLatitude(), location.getLongitude());
             mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(point, 17));
+            locationManager.removeUpdates(locationListener);
         }
 
         @Override
@@ -114,12 +118,19 @@ public class NearByPostATMActivity extends FragmentActivity implements OnMapRead
     }
 
     void markATMs() {
+        int height = 104;
+        int width = 80;
+
+        BitmapDrawable bitmapdraw = (BitmapDrawable) ResourcesCompat.getDrawable(getResources(), R.drawable.mark, null);
+        Bitmap b = bitmapdraw.getBitmap();
+        Bitmap smallMarker = Bitmap.createScaledBitmap(b, width, height, false);
         for (int i = 0; i < postATMManager.getPostATMCount(); i++) {
             PostATM atm = postATMManager.postATMs.get(i);
             LatLng atmPosition = new LatLng(atm.latitude, atm.longitude);
             MarkerOptions markOpt = new MarkerOptions().position(atmPosition).title(atm.name);
             markOpt.snippet(atm.getFullAddress() + "\n" + atm.getStatus());
-            markOpt.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN));
+            markOpt.icon(BitmapDescriptorFactory.fromBitmap(smallMarker));
+            //markOpt.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN));
             mMap.addMarker(markOpt);
         }
         ATMInfoWindowAdapter adapter = new ATMInfoWindowAdapter(this);
